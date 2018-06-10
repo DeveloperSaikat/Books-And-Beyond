@@ -1,0 +1,16 @@
+thead{
+    color: lightseagreen;
+    text-transform:uppercase;
+}
+.panel{
+    opacity: 0.9
+}
+#dd{
+    width:178px;
+}
+input:invalid {
+    box-shadow: none;
+}
+
+
+

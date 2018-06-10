@@ -1,0 +1,122 @@
+<!--The whole content below can be removed with the new code.-->
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+      {{listTitle}}
+  </div>
+  
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-6">
+        <legend>Information: </legend>
+         <form action="#" id="formNewNaruto" name="formNewNaruto" #narutoData="ngForm" (ngSubmit)="sendData(narutoData.value)" ngNativeValidate>
+            <div class="row">
+              <div class="col-md-2">
+                  <label >Name: </label>
+              </div>
+              <div class="col-md-4">
+                  <input type="text" name="name" id="name" ngModel required>
+              </div>
+            </div>
+        <br>
+            <div class="row">
+              <div class="col-md-2">
+                <label>Genre: </label>
+              </div>
+              <div class="col-md-4">
+                <select name="genre" id="dd" ngModel required>
+                  <option value="Romantic">Romantic</option>
+                  <option value="Fiction">Fiction</option>
+                  <option value="Sci-Fi">Sci-Fi</option>
+                  <option value="Drama">Drama</option>
+                  <option value="Short Stories">Short Stories</option>
+                  <option value="Thriller">Thriller</option>
+                  <option value="Fantasy" selected>Fantasy</option>
+                </select>
+              </div>
+            </div>
+        
+        <br>
+            <div class="row">
+              <div class="col-md-2">
+                <label>Price: </label>
+              </div>
+              <div class="col-md-4">
+                <input type="number" name="price" id="price" step=".01" ngModel required> 
+              </div>
+            </div>
+        <br>
+
+            <div class="row">
+              <div class="col-md-2">
+                <label>Author: </label>
+              </div>
+              <div class="col-md-4">
+                <input type="text" name="author" id="author" ngModel required>
+              </div>
+            </div>
+        <br>
+            <div>
+              <re-captcha [(ngModel)]="recaptcha" name="recaptcha" required></re-captcha>
+            </div>
+        
+        <br>
+        <button class="btn btn-primary" type="submit" [disabled]="!narutoData.valid">Add Book</button>
+        <h3 *ngIf = "isAdded" style="color:#4682B4;font-weight:bold;">{{bookAdded}}</h3>
+       
+    </form>
+    </div>
+   
+      
+    <div class="col-md-6">
+        <legend>Search: </legend>
+        <div class="row">
+            <label class="col-md-2">Search By Name:</label>
+          <div class="col-md-2">
+            <input type="text" name="search" id="search" [(ngModel)]='listFilter'>
+          </div>
+        </div>
+      <br>
+      <br>
+      <legend>Update Book Name:</legend>
+      <div class="row">
+          <label class="col-md-4">Search By Name:</label>
+          <div class="col-md-3">
+            <input type="text" name="search" id="search">
+          </div>
+        </div>
+        <br>
+        <button class="btn btn-primary" type="submit">Update</button>
+      </div>
+    </div>
+ 
+
+  <div class="panel panel-default">
+    <div class="table-responsive">
+      <table class="table" *ngIf='students && students.length'>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Genre</th>
+            <th>Price</th>
+            <th>Author</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let studs of filterBooks'>
+              <td>{{studs.id}}</td>
+              <td><a href="#">{{studs.name|uppercase}}</a></td>
+              <td>{{studs.genre}}</td>
+              <td>{{studs.price|currency:'USD':true:'1.2-2'}}</td>
+              <td>{{studs.author}}</td>
+              <button class="btn btn-danger" (click) = "deleteProduct(studs.id)">DEL</button>
+            </tr>
+        </tbody>
+      </table>
+      <pm-loading-spinner *ngIf="showSpinner"></pm-loading-spinner>
+        <br>
+        <br>
+        
+  </div>
+ </div>
