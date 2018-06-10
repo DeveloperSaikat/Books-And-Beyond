@@ -42,7 +42,7 @@ const routes: Routes = [
     {
       provide: RECAPTCHA_SETTINGS,
       useValue: { 
-        siteKey: '6LeMp0sUAAAAAGXbZ6jgm-t4-cDWsjeOpNxQXDY_',
+        siteKey: '6Ldkp0sUAAAAAKR1fVehK9RJZXK5reh-iHDO1hNf',
       } as RecaptchaSettings,
     },],
   bootstrap: [AppComponent]
