@@ -11,3 +11,5 @@ The home page comprises of the details about the developer. And provides routing
 # Book Shelf
 
 In this window the user will get the ability to add books, delete books and update the existing ones. This takes the advantage of the Http Module of Angular and utilises the http calls to complete its task.
+
+![books](https://user-images.githubusercontent.com/40135714/41211678-727e78ca-6d56-11e8-8fb2-45e77f1a3ca0.png)
